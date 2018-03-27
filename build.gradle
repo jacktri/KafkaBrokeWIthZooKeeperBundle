@@ -1,0 +1,18 @@
+apply plugin: 'java'
+apply plugin: 'eclipse'
+
+group = 'com.savory'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = 9
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile('org.springframework:spring-core:5.0.4.RELEASE')
+    compile('org.apache.zookeeper:zookeeper:3.4.11')
+    compile('org.apache.kafka:kafka_2.12:1.0.1')
+    compile('org.apache.commons:commons-io:1.3.2')
+    compile('ch.qos.logback:logback-classic:1.2.3')
+}
