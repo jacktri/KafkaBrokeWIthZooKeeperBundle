@@ -10,8 +10,8 @@ public class KafkaAllInOneApplication {
 
     public static void main(String[] args) throws InterruptedException {
         ExecutorService executorService = Executors.newWorkStealingPool();
-        EmbeddedZookeeper zookeeper = new EmbeddedZookeeper();
-        EmbeddedKafka kafka = new EmbeddedKafka();
+        var zookeeper = new EmbeddedZookeeper();
+        var kafka = new EmbeddedKafka();
         executorService.execute(zookeeper::start);
         Thread.sleep(10000);
         kafka.start();

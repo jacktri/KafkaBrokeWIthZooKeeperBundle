@@ -16,7 +16,7 @@ public class EmbeddedKafka {
     private static KafkaLocal kafka;
 
     public void start() {
-        Properties kafkaProperties = new Properties();
+        var kafkaProperties = new Properties();
         try {
             InputStream kafkaProps = new ClassPathResource("kafkalocal.properties").getInputStream();
             kafkaProperties.load(kafkaProps);
@@ -30,9 +30,9 @@ public class EmbeddedKafka {
 
     private static void createTopic() {
 
-        String zookeeperConnect = "localhost:2181";
-        int sessionTimeoutMs = 10 * 1000;
-        int connectionTimeoutMs = 8 * 1000;
+        var zookeeperConnect = "localhost:2181";
+        var sessionTimeoutMs = 10 * 1000;
+        var connectionTimeoutMs = 8 * 1000;
 
         ZkClient zkClient = new ZkClient(
             zookeeperConnect,
@@ -42,8 +42,8 @@ public class EmbeddedKafka {
 
         ZkUtils zkUtils = ZkUtils.apply(zkClient, true);
         String topic = "ero";
-        int partitions = 1;
-        int replication = 1;
+        var partitions = 1;
+        var replication = 1;
 
         Properties props = new Properties();
         AdminUtils.createTopic(zkUtils, topic, partitions, replication, props, new RackAwareMode.Disabled$());

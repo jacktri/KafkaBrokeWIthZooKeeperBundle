@@ -11,7 +11,7 @@ public class KafkaLocal {
     public KafkaServerStartable kafka;
 
     public KafkaLocal(Properties kafkaProperties) {
-        KafkaConfig kafkaConfig = new KafkaConfig(kafkaProperties);
+        var kafkaConfig = new KafkaConfig(kafkaProperties);
         kafka = new KafkaServerStartable(kafkaConfig);
         System.out.println("starting local kafka broker...");
         kafka.startup();
